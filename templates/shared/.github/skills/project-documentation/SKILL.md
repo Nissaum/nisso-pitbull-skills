@@ -4,7 +4,7 @@ description: Criar, validar e manter documentação técnica factual de um proje
 ---
 # Skill: documentação de contexto do projeto
 
-Leia [diretrizes de documentação](../../../../../DOCUMENTACAO-DE-PROJETOS.md) apenas quando o repositório playbook estiver disponível. Nos projetos da empresa, siga estes passos sem depender deste link:
+Siga estes passos diretamente no repositório da aplicação. O guia completo está em `DOCUMENTACAO-DE-PROJETOS.md` no repositório do playbook, mas esta skill não depende dele para funcionar:
 
 1. Inspecione README, build, CI, módulos e pequena amostra de classes/componentes e testes.
 2. Produza `docs/ai-context.md` **curto** com papel do serviço, stack verificada, mapa, contrato, comandos encontrados, exemplos e riscos, com fonte por informação.

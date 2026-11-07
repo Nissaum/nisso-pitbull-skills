@@ -10,6 +10,10 @@
 5. **Critério de parada.** Dúvida bloqueante, divergência de contrato ou risco crítico interrompem o Agent.
 6. **Toda história deixa rastros:** contrato de entrada, plano, diff revisado, evidências e PR.
 
+## Gate C0 — documentação e contexto (pré-requisito para qualquer trilha)
+Antes de iniciar, verifique `docs/ai-context.md` no **projeto relevante**; se ausente ou desatualizado, acione o [documentador](DOCUMENTACAO-DE-PROJETOS.md) em tarefa separada, com revisão humana. Não invente versão, contrato ou comandos.
+Histórias que envolvem várias camadas devem usar o [refinador central](ARQUITETURA-DE-AGENTES.md), que seleciona subagentes FED/BFF/SRV **apenas quando necessário** e entrega um contrato/plano integrado. Se outros repositórios não estiverem visíveis, registre NÃO INSPECIONADO e use o [handoff](HANDOFF-REFINAMENTO.md) autorizado.
+
 ## Escolha da trilha
 - **Trilha curta:** correção pontual, sem impacto em contrato, dados, autenticação ou várias camadas. Cumprir entrada, plano enxuto, implementação, testes, review e PR.
 - **Trilha completa:** regras novas, mudança de contrato, integrações, autorização, migrações, persistência, riscos altos ou FED+BFF+SRV. Todos os gates.
@@ -31,7 +35,7 @@
 Dev e PO identificam objetivo de negócio, comportamento atual/esperado, critérios de aceite, regras, exceções e dependências. Sanitizar contexto de acordo com a política. Preencher [MODELO-HISTORIA.md](MODELO-HISTORIA.md). **Pare** se faltarem autorizações, definição de regra ou contrato necessário.
 
 ### Gate 1 — Refinamento técnico (sem escrita)
-Usar `01-refinar-historia`. Exigir resumo em palavras próprias, cenários Dado/Quando/Então, perguntas bloqueantes/não bloqueantes, riscos, hipóteses e ponto de validação humano. Um resumo fluente não significa entendimento correto.
+Preferir `08-refinar-integrado` com `pitbull-refinador-central` quando há cruzamento de camadas; para casos simples, `01-refinar-historia`. Exigir resumo em palavras próprias, cenários Dado/Quando/Então, perguntas bloqueantes/não bloqueantes, riscos, hipóteses e ponto de validação humano. Um resumo fluente não significa entendimento correto.
 
 ### Gate 2 — Impacto e plano (sem escrita)
 Usar `02-mapear-impacto` e `03-plano`. Buscar no máximo os módulos necessários, com nomes de arquivos confirmados. Mapear dono da regra (normalmente SRV), adaptação do BFF, apresentação do FED, contratos, testes, migração/rollback e ordem de implementação. **Dev revisa o plano**. TL valida interfaces públicas, dados e segurança.
@@ -58,6 +62,11 @@ Usar `07-preparar-pr`. PR contém ID da história, resumo por camada, impactos, 
 - **QA/Segurança/Arquitetura:** requisitos específicos e controles corporativos.
 - **Copilot:** instrumento de apoio, jamais dono de decisão ou evidência.
 
+## Skills e segurança como gates
+Antes de implementar, classificar skills relevantes (`angular-frontend`, `spring-boot-backend`, `bff-contracts`, `project-documentation`) e verificar uso pela atividade do Copilot, quando possível. **Instalada ≠ utilizada**; registrar NÃO VERIFICADO quando não houver prova.
+
+Na revisão/PR, consultar relatório/status **real** Mend SCA e SAST, se exigidos e configurados no ambiente. Sem relatório => NÃO VERIFICADO. Decisões de exceção pertencem ao AppSec/DevSecOps. Ver [MEND-VALIDACAO.md](MEND-VALIDACAO.md).
+
 ## Definition of Done
 - [ ] Critérios de aceitação com evidência
 - [ ] Contratos FED/BFF/SRV consistentes (quando aplicável)
@@ -66,6 +75,9 @@ Usar `07-preparar-pr`. PR contém ID da história, resumo por camada, impactos, 
 - [ ] Diff revisado, sem alterações oportunistas
 - [ ] PR com aprovação humana e rollback quando necessário
 - [ ] Sem dados sensíveis enviados ou publicados indevidamente
+- [ ] Contexto do projeto consultado ou lacuna documentada
+- [ ] Skills pertinentes selecionadas, com evidência ou NÃO VERIFICADO
+- [ ] Status Mend SCA/SAST confirmado pelo pipeline quando exigido, ou explicitamente pendente
 
 ## Tratamento de falhas
 Em erro recorrente, **pare após duas tentativas de correção sem progresso**, produza diagnóstico curto (comportamento, hipótese, trecho de log sanitizado) e peça ajuda humana. Na urgência, preserve evidência mínima e governança de mudança.

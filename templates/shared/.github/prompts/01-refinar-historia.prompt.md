@@ -9,3 +9,6 @@ Atue como analista técnico da Squad Pitbull. Analise a história/trecho sanitiz
 Responda nesta ordem: (1) objetivo com suas palavras; (2) regras e critérios Dado/Quando/Então; (3) cenários negativos/limites; (4) FATOS vs HIPÓTESES; (5) dúvidas bloqueantes e não bloqueantes, indicando dono PO/TL; (6) riscos e Definition of Ready.
 
 Não invente regras, contratos, endpoints ou autorizações. Se houver bloqueio, finalize com perguntas e pare.
+
+
+Para histórias que cruzam várias aplicações, prefira `08-refinar-integrado.prompt.md` com o agente `pitbull-refinador-central`; não produza três refinamentos divergentes. Antes de planejar, valide `docs/ai-context.md` ou sinalize lacuna C0.

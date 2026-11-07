@@ -2,6 +2,9 @@
 
 > Confirmar com a organização **modelo de cobrança, licenças, AI Credits/tokens e limites vigentes**, pois mudam com planos e políticas. Não prometer economia percentual sem medição.
 
+## Custo da orquestração
+Um subagente pode manter contexto separado, mas **gera chamadas adicionais**. Não invocar FED, BFF e SRV automaticamente; usar apenas os impactados, com briefing mínimo e saída estruturada. Documentação do projeto deve ser consultada por referência, sem replicar centenas de linhas a cada interação. Registrar custo total, não só tokens da conversa principal.
+
 ## Boas práticas para reduzir consumo desperdiçado
 1. **Primeiro Ask/Plan (read-only).** Agent só com tarefa, escopo e saída definidos.
 2. **Contexto mínimo:** história estruturada + padrões do repo + 2–5 arquivos relevantes, expandindo quando necessário.

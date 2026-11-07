@@ -2,6 +2,12 @@
 
 > Use em toda história. No início, **não** envie “faz aí”. Primeiro peça análise sem modificação de arquivos.
 
+### Gate C0: documento de contexto e skills
+- [ ] `docs/ai-context.md` do meu projeto existe e reflete build, contratos e comandos reais; se não, solicitei bootstrap ao documentador.
+- [ ] Para história FED+BFF+SRV, escolhi **refinador central**, não três planejamentos independentes.
+- [ ] Outros repositórios estão acessíveis? Caso contrário, solicitei handoffs com evidência, sem afirmar que foram inspecionados.
+- [ ] Identifiquei skills aplicáveis; presença de `SKILL.md` não garante uso.
+
 ### Antes do Copilot
 - [ ] Sei qual é o objetivo e o resultado verificável.
 - [ ] Tenho critérios de aceite e consigo explicar a história com minhas palavras.
@@ -32,6 +38,10 @@
 - Inclua somente erros relevantes e sanitizados; saída curta em tabelas/bullets.
 - Evite refatoração oportunista; mantenha modelo/ferramentas estáveis se útil.
 - Registre resumo do contexto validado no ticket para evitar reexplicação.
+
+### Segurança ao finalizar
+- [ ] Consultei status real do Mend SCA/SAST para o commit/PR, se exigido; sem scan marquei NÃO VERIFICADO.
+- [ ] Não assumi que a IA consegue descobrir vulnerabilidades sem scanner, nem ignorei findings sem aprovação.
 
 ### Ao finalizar
 **ID:** … · **Plano aprovado:** … · **Arquivos alterados:** … · **Testes e resultados observados:** … · **Riscos:** … · **Evidência no PR:** …
